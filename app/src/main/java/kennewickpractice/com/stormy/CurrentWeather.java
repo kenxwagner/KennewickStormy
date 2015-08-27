@@ -67,7 +67,7 @@ public class CurrentWeather {
         else if (mIcon.equals("partly-cloudy-night")) {
             iconId = R.mipmap.cloudy_night;
         }
-
+// it compiles
         return iconId;
     }
 

@@ -7,7 +7,7 @@
                 android:paddingTop="@dimen/activity_vertical_margin"
                 android:paddingBottom="@dimen/activity_vertical_margin"
                 tools:context=".MainActivity"
-                android:background="#fffc970b">
+                android:background="#6f8dfc">
 
     <TextView
         android:layout_width="wrap_content"
@@ -42,13 +42,13 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Alcatraz Island, CA"
+        android:text="Kennewick, WA"
         android:id="@+id/locationLabel"
         android:layout_above="@+id/timeLabel"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="60dp"
         android:textColor="@android:color/white"
-        android:textSize="24sp"/>
+        android:textSize="26sp"/>
 
     <ImageView
         android:layout_width="wrap_content"

@@ -1,13 +1,15 @@
-package kennewickpractice.com.stormy;
+package kennewickpractice.com.stormy.weather;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.TimeZone;
 
+import kennewickpractice.com.stormy.R;
+
 /**
  * Created by ken.wagner on 8/20/2015.
  */
-public class CurrentWeather {
+public class Current {
     private String mIcon;
     private long mTime;
     private double mTemperature;

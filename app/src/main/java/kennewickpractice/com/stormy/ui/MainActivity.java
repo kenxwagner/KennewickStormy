@@ -2,6 +2,7 @@ package kennewickpractice.com.stormy.ui;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -28,6 +29,7 @@ import java.io.IOException;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import kennewickpractice.com.stormy.R;
 import kennewickpractice.com.stormy.weather.Current;
 import kennewickpractice.com.stormy.weather.Day;
@@ -173,8 +175,30 @@ public class MainActivity extends Activity {
 
     }
 
-    private Day[] getDailyForecast(String jsonData) {
-        return new Day[0];
+    private Day[] getDailyForecast(String jsonData) throws JSONException {
+        JSONObject forecast = new JSONObject(jsonData);
+        String timezone = forecast.getString("timezone");
+        JSONObject daily = forecast.getJSONObject("daily");
+        JSONArray data = daily.getJSONArray("data");
+
+        Day [] days = new Day[data.length()];
+
+        for (int i = 0; i < data.length(); i++) {
+            JSONObject jsonDay = data.getJSONObject(i);
+            Day day = new Day ();
+
+            day.setSummary(jsonDay.getString("summary"));
+            day.setIcon(jsonDay.getString("icon"));
+            day.setTemperatureMax(jsonDay.getDouble("temperatureMax"));
+            day.setTime(jsonDay.getLong("time"));
+            day.setWindSpeed(jsonDay.getDouble("windSpeed"));
+            day.setTimezone(timezone);
+
+            days [i] = day;
+
+        }
+
+        return days;
     }
 
     private Hour[] getHourlyForecast(String jsonData) throws JSONException {
@@ -193,6 +217,7 @@ public class MainActivity extends Activity {
             hour.setTemperature(jsonHour.getDouble("temperature"));
             hour.setIcon(jsonHour.getString("icon"));
             hour.setTime(jsonHour.getLong("time"));
+            hour.setWindSpeed(jsonHour.getDouble("windSpeed"));
             hour.setTimezone(timezone);
 
             hours[i] = hour;
@@ -236,5 +261,10 @@ public class MainActivity extends Activity {
     private void alertUserAboutError() {
         AlertDialogFragment dialog = new AlertDialogFragment();
         dialog.show(getFragmentManager(), "error_dialog");
+    }
+    @OnClick(R.id.dailyButton)
+    public void startDailyActivity(View view) {
+        Intent intent = new Intent(this, DailyForecastActivity.class);
+        startActivity(intent);
     }
 }

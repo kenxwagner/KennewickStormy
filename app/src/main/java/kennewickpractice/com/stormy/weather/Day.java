@@ -1,5 +1,8 @@
 package kennewickpractice.com.stormy.weather;
 
+import java.text.SimpleDateFormat;
+import java.util.TimeZone;
+
 /**
  * Created by ken.wagner on 9/22/2015.
  */
@@ -58,5 +61,16 @@ public class Day {
 
     public void setWindSpeed(double windSpeed) {
         mWindSpeed = windSpeed;
+    }
+
+    public int getIconId() {
+        return Forecast.getIconId(mIcon);
+    }
+
+    public String getDayOfTheWeek() {
+        SimpleDateFormat formatter = new SimpleDateFormat("EEEE");
+        formatter.setTimeZone(TimeZone.getDefault().getTimeZone(mTimezone));
+        Date dateTime = new Date(mTime * 1000);
+        return formatter.format(dateTime);
     }
 }

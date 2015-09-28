@@ -16,7 +16,7 @@ public class Day implements Parcelable {
     private double mTemperatureMax;
     private String mIcon;
     private String mTimezone;
-    private double mWindSpeed;
+
 
 
     public long getTime() {
@@ -59,15 +59,10 @@ public class Day implements Parcelable {
         mTimezone = timezone;
     }
 
-    public double getWindSpeed() {
-        return mWindSpeed;
-    }
 
-    public void setWindSpeed(double windSpeed) {
-        mWindSpeed = windSpeed;
-    }
 
     public int getIconId() {
+
         return Forecast.getIconId(mIcon);
     }
 
@@ -80,6 +75,7 @@ public class Day implements Parcelable {
 
     @Override
     public int describeContents() {
+
         return 0;
     }
 
@@ -90,8 +86,7 @@ public class Day implements Parcelable {
         dest.writeDouble(mTemperatureMax);
         dest.writeString(mIcon);
         dest.writeString(mTimezone);
-        dest.writeDouble(mWindSpeed);
-    }
+            }
 
     private Day(Parcel in) {
         mTime = in.readLong();
@@ -99,7 +94,7 @@ public class Day implements Parcelable {
         mTemperatureMax = in.readDouble();
         mIcon = in.readString();
         mTimezone = in.readString();
-        mWindSpeed = in.readDouble();
+
     }
 
     public Day() {}
@@ -112,7 +107,7 @@ public class Day implements Parcelable {
 
         @Override
         public Day[] newArray(int size) {
-            return new Day[size];
+                        return new Day[size];
         }
     };
 }

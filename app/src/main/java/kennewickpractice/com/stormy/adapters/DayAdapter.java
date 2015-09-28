@@ -25,18 +25,16 @@ public class DayAdapter extends BaseAdapter {
     }
 
     @Override
-    public int getCount() {
-        return mDays.length;
+    public int getCount() {         return mDays.length;
     }
 
     @Override
-    public Object getItem(int position) {
-        return mDays[position];
+    public Object getItem(int position) {         return mDays[position];
     }
 
     @Override
     public long getItemId(int position) {
-        return 0; // Not being used. Allows easy reference by tagging item.
+        return 0; // not being used
     }
 
     @Override
@@ -44,12 +42,12 @@ public class DayAdapter extends BaseAdapter {
         ViewHolder holder;
 
         if (convertView == null) {
-            //new to the world
+            // brand new
             convertView = LayoutInflater.from(mContext).inflate(R.layout.daily_list_item, null);
             holder = new ViewHolder();
             holder.iconImageView = (ImageView) convertView.findViewById(R.id.iconImageView);
             holder.temperatureLabel = (TextView) convertView.findViewById(R.id.temperatureLabel);
-            holder.dayLabel = (TextView)convertView.findViewById(R.id.dayNameLabel);
+            holder.dayLabel = (TextView) convertView.findViewById(R.id.dayNameLabel);
 
             convertView.setTag(holder);
         }
@@ -60,14 +58,20 @@ public class DayAdapter extends BaseAdapter {
         Day day = mDays[position];
 
         holder.iconImageView.setImageResource(day.getIconId());
-        holder.temperatureLabel.setText(day.getTemperatureMax());
-        holder.dayLabel.setText(day.getDayOfTheWeek());
+        holder.temperatureLabel.setText(day.getTemperatureMax() + "");
+
+        if (position == 0) {
+            holder.dayLabel.setText("Today");
+        }
+        else {
+            holder.dayLabel.setText(day.getDayOfTheWeek());
+        }
 
         return convertView;
     }
 
     private static class ViewHolder {
-        ImageView iconImageView;
+        ImageView iconImageView; // public by default
         TextView temperatureLabel;
         TextView dayLabel;
     }

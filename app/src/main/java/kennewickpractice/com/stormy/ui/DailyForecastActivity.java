@@ -5,13 +5,13 @@ import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
-import android.widget.ArrayAdapter;
 
 import java.util.Arrays;
 
 import kennewickpractice.com.stormy.R;
 import kennewickpractice.com.stormy.adapters.DayAdapter;
 import kennewickpractice.com.stormy.weather.Day;
+
 
 public class DailyForecastActivity extends ListActivity {
 
@@ -29,5 +29,4 @@ public class DailyForecastActivity extends ListActivity {
         DayAdapter adapter = new DayAdapter(this, mDays);
         setListAdapter(adapter);
     }
-
 }

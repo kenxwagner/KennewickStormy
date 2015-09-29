@@ -42,10 +42,12 @@ public class DayAdapter extends BaseAdapter {
         ViewHolder holder;
 
         if (convertView == null) {
-            // brand new
+            // new one
             convertView = LayoutInflater.from(mContext).inflate(R.layout.daily_list_item, null);
             holder = new ViewHolder();
-            holder.iconImageView = (ImageView) convertView.findViewById(R.id.iconImageView);
+            holder.iconImageView = (ImageView) convertView.findViewById(R.id.circleImageView);
+            // id was converted from iconImageView to circleImageView
+            // id did not exist, so this caused a fatal exception error.
             holder.temperatureLabel = (TextView) convertView.findViewById(R.id.temperatureLabel);
             holder.dayLabel = (TextView) convertView.findViewById(R.id.dayNameLabel);
 

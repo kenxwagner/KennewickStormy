@@ -76,6 +76,8 @@ public class Hour implements Parcelable{
         dest.writeString(mSummary);
         dest.writeString(mIcon);
         dest.writeString(mTimezone);
+        dest.writeDouble(mWindSpeed);
+
 
     }
 
@@ -85,6 +87,7 @@ public class Hour implements Parcelable{
         mSummary = in.readString();
         mIcon = in.readString();
         mTimezone = in.readString();
+        mWindSpeed = in.readDouble();
 
     }
 

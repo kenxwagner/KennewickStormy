@@ -3,6 +3,9 @@ package kennewickpractice.com.stormy.weather;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  * Created by ken.wagner on 9/22/2015.
  */
@@ -32,9 +35,12 @@ public class Hour implements Parcelable{
         mSummary = summary;
     }
 
-    public double getTemperature() {
-        return mTemperature;
+    public int getTemperature() {
+        return  (int) Math.round(mTemperature);
     }
+
+    public int getIconId() {
+        return  Forecast.getIconId(mIcon);}
 
     public void setTemperature(double temperature) {
         mTemperature = temperature;
@@ -63,6 +69,12 @@ public class Hour implements Parcelable{
     public void setWindSpeed(double windSpeed) {
         mWindSpeed = windSpeed;
 }
+
+    public String getHour() {
+        SimpleDateFormat formatter = new SimpleDateFormat("h a");
+        Date date = new Date(mTime * 1000);
+        return formatter.format(date);
+    }
 
     @Override
     public int describeContents() {
@@ -102,4 +114,6 @@ public class Hour implements Parcelable{
             return new Hour[size];
         }
     };
+
+
 }

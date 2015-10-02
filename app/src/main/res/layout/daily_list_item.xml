@@ -4,7 +4,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingLeft="64dp"
-                android:paddingRight="4dp"
+                android:paddingRight="32dp"
                 android:paddingTop="4dp"
                 android:paddingBottom="4dp"
                 tools:background="#4169e1"    >
@@ -21,7 +21,7 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/IconImageView"
+        android:id="@+id/iconImageView"
         android:src="@mipmap/clear_day"
         android:layout_centerVertical="true"
         android:layout_toRightOf="@+id/circleImageView"
@@ -33,11 +33,12 @@
         android:layout_height="wrap_content"
         android:id="@+id/dayNameLabel"
         android:layout_centerVertical="true"
-        android:layout_toRightOf="@+id/IconImageView"
-        android:layout_toEndOf="@+id/IconImageView"
+        android:layout_toRightOf="@+id/iconImageView"
+        android:layout_toEndOf="@+id/iconImageView"
         android:textColor="#ffffffff"
         tools:text="Wednesday"
-        android:textSize="20sp"/>
+        android:textSize="20sp"
+        android:paddingLeft="10dp"/>
 
     <EditText
         android:layout_width="wrap_content"

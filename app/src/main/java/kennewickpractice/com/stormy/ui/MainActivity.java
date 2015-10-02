@@ -1,12 +1,12 @@
 package kennewickpractice.com.stormy.ui;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
@@ -35,7 +35,7 @@ import kennewickpractice.com.stormy.weather.Day;
 import kennewickpractice.com.stormy.weather.Forecast;
 import kennewickpractice.com.stormy.weather.Hour;
 
-public class MainActivity extends Activity {
+public class MainActivity extends AppCompatActivity {
 
     public static final String TAG = MainActivity.class.getSimpleName();
     public static final String DAILY_FORECAST = "DAILY_FORECAST";
@@ -214,10 +214,12 @@ public class MainActivity extends Activity {
             Hour hour = new Hour();
 
             hour.setSummary(jsonHour.getString("summary"));
-            hour.setTemperature(jsonHour.getDouble("temperature"));
             hour.setIcon(jsonHour.getString("icon"));
+            hour.setTemperature(jsonHour.getDouble("temperature"));
+
             hour.setTime(jsonHour.getLong("time"));
-            hour.setWindSpeed(jsonHour.getDouble("windSpeed"));
+
+            //hour.setWindSpeed(jsonHour.getDouble("windSpeed"));
             hour.setTimezone(timezone);
 
             hours[i] = hour;
@@ -262,7 +264,16 @@ public class MainActivity extends Activity {
         AlertDialogFragment dialog = new AlertDialogFragment();
         dialog.show(getFragmentManager(), "error_dialog");
     }
+    /*
     @OnClick(R.id.dailyButton)
+    public void startDailyActivity(View view) {
+        Intent intent = new Intent(this, DailyForecastActivity.class);
+        intent.putExtra(DAILY_FORECAST, mForecast.getDailyForecast());
+        startActivity(intent);
+    }
+    */
+
+    @OnClick (R.id.dailyButton)
     public void startDailyActivity(View view) {
         Intent intent = new Intent(this, DailyForecastActivity.class);
         intent.putExtra(DAILY_FORECAST, mForecast.getDailyForecast());

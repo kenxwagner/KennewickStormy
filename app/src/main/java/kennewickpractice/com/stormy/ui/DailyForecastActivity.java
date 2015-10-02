@@ -2,9 +2,11 @@ package kennewickpractice.com.stormy.ui;
 
 
 import android.app.ListActivity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -31,6 +33,8 @@ public class DailyForecastActivity extends ListActivity {
 
         DayAdapter adapter = new DayAdapter(this, mDays);
         setListAdapter(adapter);
+
+
     }
 
     @Override

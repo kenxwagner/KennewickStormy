@@ -25,11 +25,13 @@ public class DayAdapter extends BaseAdapter {
     }
 
     @Override
-    public int getCount() {         return mDays.length;
+    public int getCount() {
+        return mDays.length;
     }
 
     @Override
-    public Object getItem(int position) {         return mDays[position];
+    public Object getItem(int position) {
+        return mDays[position];
     }
 
     @Override
@@ -45,9 +47,7 @@ public class DayAdapter extends BaseAdapter {
             // new one
             convertView = LayoutInflater.from(mContext).inflate(R.layout.daily_list_item, null);
             holder = new ViewHolder();
-            holder.iconImageView = (ImageView) convertView.findViewById(R.id.circleImageView);
-            // id was converted from iconImageView to circleImageView
-            // id did not exist, so this caused a fatal exception error.
+            holder.iconImageView = (ImageView) convertView.findViewById(R.id.iconImageView);
             holder.temperatureLabel = (TextView) convertView.findViewById(R.id.temperatureLabel);
             holder.dayLabel = (TextView) convertView.findViewById(R.id.dayNameLabel);
 

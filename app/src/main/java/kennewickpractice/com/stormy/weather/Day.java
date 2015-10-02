@@ -17,8 +17,6 @@ public class Day implements Parcelable {
     private String mIcon;
     private String mTimezone;
 
-
-
     public long getTime() {
         return mTime;
     }
@@ -86,7 +84,7 @@ public class Day implements Parcelable {
         dest.writeDouble(mTemperatureMax);
         dest.writeString(mIcon);
         dest.writeString(mTimezone);
-            }
+    }
 
     private Day(Parcel in) {
         mTime = in.readLong();
@@ -107,7 +105,8 @@ public class Day implements Parcelable {
 
         @Override
         public Day[] newArray(int size) {
-                        return new Day[size];
+            return new Day[size];
         }
     };
+
 }

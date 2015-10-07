@@ -10,4 +10,5 @@
     <string name="title_activity_daily_forecast">DailyForecastActivity</string>
     <string name="no_daily_forecast_data">No data available to display.</string>
     <string name="title_activity_hourly_forecast">HourlyForecastActivity</string>
+    <string name="title_activity_stormy_gps">Map</string>
 </resources>

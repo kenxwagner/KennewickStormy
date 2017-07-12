@@ -1,4 +1,4 @@
 # Stormy
 This is an app that takes data from an API and presents it to user.
 
-Adding Google play services for GPS services. 
+Set for refactoring because the coordinates are hard coded,  which is not practical. 

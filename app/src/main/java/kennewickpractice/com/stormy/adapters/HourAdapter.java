@@ -13,7 +13,7 @@ import kennewickpractice.com.stormy.R;
 import kennewickpractice.com.stormy.weather.Hour;
 
 /**
- * Created by ken.wagner on 9/30/2015.
+ * Created by ken.wagner
  */
 public class HourAdapter extends RecyclerView.Adapter<HourAdapter.HourViewHolder> {
 
